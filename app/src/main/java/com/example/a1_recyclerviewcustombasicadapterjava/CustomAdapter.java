@@ -31,9 +31,6 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
     @Override
     public void onBindViewHolder(@NonNull CustomViewHolder holder, int position) {
 
-        Student student = studentArrayList.get(position);
-
-
         holder.tvOrder.setText(String.valueOf(position + 1));
         holder.tvFullName.setText(studentArrayList.get(position).fullName);
         holder.tvAge.setText(String.valueOf(studentArrayList.get(position).age));

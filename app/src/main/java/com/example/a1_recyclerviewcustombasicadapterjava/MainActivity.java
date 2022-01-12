@@ -22,7 +22,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initViews() {
-        studentArrayList = new ArrayList<>();
         recyclerView = findViewById(R.id.recycler_view);
         customAdapter = new CustomAdapter(MainActivity.this, studentArrayList);
         recyclerView.setAdapter(customAdapter);
