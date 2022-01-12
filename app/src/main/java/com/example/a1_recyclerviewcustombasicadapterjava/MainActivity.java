@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     CustomAdapter customAdapter;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initViews() {
+        studentArrayList = new ArrayList();
         recyclerView = findViewById(R.id.recycler_view);
         customAdapter = new CustomAdapter(MainActivity.this, studentArrayList);
         recyclerView.setAdapter(customAdapter);
@@ -32,12 +34,15 @@ public class MainActivity extends AppCompatActivity {
 
     private void addItemsToTheStudentArrayList() {
         for (int i = 0; i < 20; i++) {
-            if(i % 3 == 1){
-                studentArrayList.add(new Student("Sobirov Jamshid Sadulla o'g'li", 20));
-            } else if(i % 3 == 2){
-                studentArrayList.add(new Student("Sobirov Otabek Sadulla o'g'li", 23));
+
+            if (i % 4 == 0) {
+                studentArrayList.add(new Student("Bozorboyeva Muyassar Davron qizi", 19, false));
+            } else if (i % 3 == 1) {
+                studentArrayList.add(new Student("Sobirov Jamshid Sadulla o'g'li", 20, true));
+            } else if (i % 3 == 2) {
+                studentArrayList.add(new Student("Sobirov Otabek Sadulla o'g'li", 23, true));
             } else {
-                studentArrayList.add(new Student("Matchanova Dinora Sadulla qizi", 19));
+                studentArrayList.add(new Student("Matchanova Dinora Sadulla qizi", 19, true));
 
             }
         }

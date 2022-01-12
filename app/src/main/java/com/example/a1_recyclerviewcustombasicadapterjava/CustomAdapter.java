@@ -13,6 +13,9 @@ import java.util.ArrayList;
 
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomViewHolder> {
 
+    public static final int TYPE_AVAILABLE_YES = 0;
+    public static final int TYPE_UNAVAILABLE_NO = 1;
+
     Context context;
     ArrayList<Student> studentArrayList;
 
@@ -21,11 +24,27 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
         this.studentArrayList = studentArrayList;
     }
 
+    @Override
+    public int getItemViewType(int position) {
+        Student student = studentArrayList.get(position);
+        if (student.availabale) {
+            return TYPE_AVAILABLE_YES;
+        } else {
+            return TYPE_UNAVAILABLE_NO;
+        }
+
+    }
+
     @NonNull
     @Override
     public CustomViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.item_student, parent, false);
-        return new CustomViewHolder(view);
+        if(viewType == TYPE_AVAILABLE_YES){
+            View view = LayoutInflater.from(context).inflate(R.layout.item_student, parent, false);
+            return new CustomViewHolder(view);
+        } else {
+            View view = LayoutInflater.from(context).inflate(R.layout.unavailable_item, parent, false);
+            return new CustomViewHolder(view);
+        }
     }
 
     @Override
