@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
             if (i % 4 == 0) {
                 studentArrayList.add(new Student("Bozorboyeva Muyassar Davron qizi", 19, false));
             } else if (i % 3 == 1) {
-                studentArrayList.add(new Student("Sobirov Jamshid Sadulla o'g'li", 20, true));
+                studentArrayList.add(new Student("Sobirov James Sadulla o'g'li", 20, true));
             } else if (i % 3 == 2) {
                 studentArrayList.add(new Student("Sobirov Otabek Sadulla o'g'li", 23, true));
             } else {
